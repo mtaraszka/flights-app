@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CountPlanesByCountries from './components/CountPlanesByCountries';
 import Spinner from './components/Spinner';
+import WorldMap from './components/WorldMap/WorldMap';
 
 const Homepage = () => {
   const [flights, setFlights] = useState([]);
@@ -22,9 +23,10 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="container text-center flex-auto text-4xl bg-[#666666] py-16">
+    <div className="container text-center flex-auto h-fit w-full text-4xl bg-[#666666] py-16">
       <Spinner loading={isLoading} />
       <CountPlanesByCountries flights={flights}/>
+      <WorldMap flights={flights} />
     </div>
   );
 };
