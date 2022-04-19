@@ -9,7 +9,7 @@ const Homepage = () => {
       await fetch('https://gothic459.pythonanywhere.com/api/flights')
         .then(response => response.json())
         .then(data => {
-          setFlights(data.slice(0, 50));
+          setFlights(data);
         });
     };
 

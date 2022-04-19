@@ -1,16 +1,14 @@
 const getCountries = (flights) => {
+  let counts = {};
+
   let countries = [];
+  flights.forEach(flight => countries.push(flight.origin_country));
 
-  flights.forEach(flight => {
-    console.log(flight)
+  countries.forEach(country => counts[country] = (counts[country] || 0) + 1);
 
-    if (countries.includes(flight.origin_country)) {
-      return;
-    }
-    countries.push(flight.origin_country)
-  });
-
-  return countries;
+  return Object.keys(counts).map(key => {
+    return { label: key, value: counts[key] };
+  }).sort((a,b) => a.value - b.value).reverse();
 };
 
 export default getCountries;
