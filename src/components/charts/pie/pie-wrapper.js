@@ -6,6 +6,7 @@ import Label from './label';
 
 const PieWrapper = ({ data }) => {
   const [pieData, setPieData] = useState([]);
+
   const gradientArray = colorGradient.setGradient('#FDA002', '#6F09FC').setMidpoint(data.length).getArray();
 
   useEffect(() => {

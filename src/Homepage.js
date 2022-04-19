@@ -9,6 +9,7 @@ const Homepage = () => {
       await fetch('https://gothic459.pythonanywhere.com/api/flights')
         .then(response => response.json())
         .then(data => {
+          console.log(data.length)
           setFlights(data);
         });
     };
@@ -17,9 +18,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="container text-4xl bg-[#666666]">
-
-      Working!
+    <div className="container text-4xl bg-[#666666] py-16">
       <CountPlanesByCountries flights={flights}/>
     </div>
   );
