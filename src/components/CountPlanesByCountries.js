@@ -3,7 +3,7 @@ import getCountries from '../utilities/functions/getCountries';
 import PieWrapper from './charts/pie/pie-wrapper';
 
 const CountPlanesByCountries = ({ flights }) => {
-  const [countedPlanesByCountries, setCountedPlanesByCountries] = useState(null);
+  const [countedPlanesByCountries, setCountedPlanesByCountries] = useState(0);
   const [limit, setLimit] = useState(10);
 
   useEffect(() => {
