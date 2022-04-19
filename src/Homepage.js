@@ -4,6 +4,7 @@ import CountPlanesByCountries from './components/count-planes-by-countries';
 import Spinner from './components/Spinner';
 import { Bar } from './components/charts';
 import { PlanesOnGroundCompare } from './components/planes-on-ground-compare';
+import WorldMap from './components/WorldMap/WorldMap';
 
 const Homepage = () => {
   const [flights, setFlights] = useState([]);
@@ -25,7 +26,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="container text-center flex-auto text-4xl bg-[#666666] py-16">
+    <div className="container text-center flex-auto h-fit w-full text-4xl bg-[#666666] py-16">
       <Spinner loading={isLoading} />
       <CountPlanesByCountries flights={flights}/>
       <PlanesOnGroundCompare flights={flights}/>
