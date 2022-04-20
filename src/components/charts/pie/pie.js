@@ -1,46 +1,34 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import Chart from './chart';
 import * as d3 from 'd3';
+import colorGradient from 'javascript-color-gradient';
+import Label from './label';
 
-const Arc = ({ data, index, createArc, colors }) => (
-  <g key={index} className="arc">
-    <path className="arc" d={createArc(data)} fill={colors(index)}/>
-  </g>
-);
+export const Pie = ({ data }) => {
+  const [pieData, setPieData] = useState([]);
 
-const Pie = props => {
-  const createPie = d3
-    .pie()
-    .value(d => d.value)
-    .sort(null);
+  const gradientArray = colorGradient.setGradient('#FDA002', '#6F09FC').setMidpoint(data.length).getArray();
 
-  const createArc = d3
-    .arc()
-    .cornerRadius(7)
-    .padAngle(0.015)
-    .innerRadius(props.innerRadius)
-    .outerRadius(props.outerRadius);
-
-  const colors = d3
-    .scaleOrdinal()
-    .range(props.colors);
-
-  const data = createPie(props.data);
+  useEffect(() => {
+    setPieData(d3.range(data.length).map((item, index) => ({
+      date: index,
+      value: data[index].value
+    })));
+  }, [data]);
 
   return (
-    <svg width={props.width} height={props.height}>
-      <g transform={`translate(${props.outerRadius} ${props.outerRadius})`}>
-        {data.map((d, i) => (
-          <Arc
-            key={i}
-            index={i}
-            data={d}
-            createArc={createArc}
-            colors={colors}
-          />
-        ))}
-      </g>
-    </svg>
+    <div>
+      <div className={'flex pb-32 pt-20 px-20 flex-row gap-12 justify-around'}>
+        <Chart
+          data={pieData}
+          width={420}
+          height={420}
+          innerRadius={150}
+          outerRadius={210}
+          colors={gradientArray}
+        />
+        <Label data={data} colorPalette={gradientArray}/>
+      </div>
+    </div>
   );
 };
-
-export default Pie;

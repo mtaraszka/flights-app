@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import getCountries from '../utilities/functions/getCountries';
-import PieWrapper from './charts/pie/pie-wrapper';
+import { Pie } from './charts';
 
 const CountPlanesByCountries = ({ flights }) => {
   const [countedPlanesByCountries, setCountedPlanesByCountries] = useState(0);
@@ -21,7 +21,7 @@ const CountPlanesByCountries = ({ flights }) => {
           <option value={countedPlanesByCountries.length}>All</option>
         </select>
       </div>
-      {countedPlanesByCountries && <PieWrapper data={countedPlanesByCountries.slice(0, limit)}/>}
+      {countedPlanesByCountries && <Pie data={countedPlanesByCountries.slice(0, limit)}/>}
     </div>
   )
 }
