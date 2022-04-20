@@ -8,23 +8,21 @@ const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    
-    const getFlights = async () => {
-      await fetch('https://gothic459.pythonanywhere.com/api/flights')
-        .then(response => response.json())
-        .then(data => {
-          console.log(data.length)
-          setIsLoading(false);
-          setFlights(data);
-        });
-    };
-
-    getFlights();
+    fetch('https://gothic459.pythonanywhere.com/api/flights')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.length)
+        setIsLoading(false);
+        setFlights(data);
+      });
   }, []);
+
+  if (isLoading) {
+    return <Spinner loading={true} />
+  }
 
   return (
     <div className="container text-center flex-auto h-fit w-full text-4xl bg-[#666666] py-16">
-      <Spinner loading={isLoading} />
       <CountPlanesByCountries flights={flights}/>
       <WorldMap flights={flights} />
     </div>
