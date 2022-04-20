@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getCountries from '../utilities/functions/getCountries';
+import getCountOfPlanesByCountries from '../utilities/functions/getCountOfPlanesByCountries';
 import { Pie } from './charts';
 
 const CountPlanesByCountries = ({ flights }) => {
@@ -7,7 +7,7 @@ const CountPlanesByCountries = ({ flights }) => {
   const [limit, setLimit] = useState(10);
 
   useEffect(() => {
-    setCountedPlanesByCountries(getCountries(flights));
+    setCountedPlanesByCountries(getCountOfPlanesByCountries(flights));
   }, [flights]);
 
   return (

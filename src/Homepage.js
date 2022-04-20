@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import CountPlanesByCountries from './components/CountPlanesByCountries';
+import CountPlanesByCountries from './components/count-planes-by-countries';
 import Spinner from './components/Spinner';
 import { Bar } from './components/charts';
 

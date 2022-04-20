@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 import * as d3 from "d3";
 
-const BarChart = ({ data }) => {
+const BarChart = ({ data, columnsColor }) => {
   const chart = useRef()
 
   useEffect(() => {
+    while(chart.current.children.length > 0) {
+      chart.current.children[0].remove()
+    }
+
     const margin = {top: 50, right: 0, bottom: 30, left: 60}
 
     const chartWidth = parseInt(d3.select('#chart-wrapper').style('width')) - margin.left -margin.right
@@ -23,7 +27,7 @@ const BarChart = ({ data }) => {
       .attr('transform', 'translate(0,' + chartHeight + ')')
       .call(d3.axisBottom(x).tickFormat(i => data[i].category).tickSizeOuter(0))
 
-    const max =d3.max(data, function (d){return d.value})
+    const max =d3.max(data, d => d.value)
 
     const y = d3.scaleLinear()
       .domain([0, max])
@@ -34,7 +38,7 @@ const BarChart = ({ data }) => {
       .call(d3.axisLeft(y))
 
     svg.append('g')
-      .attr('fill', '#65f0eb')
+      .attr('fill', columnsColor)
       .selectAll('rect')
       .data(data)
       .join('rect')
@@ -43,7 +47,7 @@ const BarChart = ({ data }) => {
         .attr('height', d => y(0)-y(d.value))
         .attr('width', x.bandwidth())
 
-  }, [data])
+  }, [data, columnsColor])
 
   return (
     <div id={'chart-wrapper'} className={'bg-[#555555] w-full h-96'}>
