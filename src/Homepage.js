@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import CountPlanesByCountries from './components/CountPlanesByCountries';
 import Spinner from './components/Spinner';
 import { Bar } from './components/charts';
 import { PlanesOnGroundCompare } from './components/planes-on-ground-compare';
 import WorldMap from './components/WorldMap/WorldMap';
+import CountPlanesByCountries from './components/count-planes-by-countries';
 
 const Homepage = () => {
   const [flights, setFlights] = useState([]);
