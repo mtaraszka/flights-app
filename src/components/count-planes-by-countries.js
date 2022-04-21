@@ -3,7 +3,7 @@ import { Pie } from './charts';
 import { getCountOfPlanesByCountries } from '../utilities/functions';
 
 const CountPlanesByCountries = ({ flights }) => {
-  const [countedPlanesByCountries, setCountedPlanesByCountries] = useState(0);
+  const [countedPlanesByCountries, setCountedPlanesByCountries] = useState(null);
   const [limit, setLimit] = useState(10);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const CountPlanesByCountries = ({ flights }) => {
           <option value={'15'}>15</option>
           <option value={'30'}>30</option>
           <option value={'50'}>50</option>
-          <option value={countedPlanesByCountries.length}>All</option>
+          <option value={countedPlanesByCountries?.length}>All</option>
         </select>
       </div>
       {countedPlanesByCountries && <Pie data={countedPlanesByCountries.slice(0, limit)}/>}
