@@ -7,8 +7,6 @@ import Plane from './plane.png';
 const Markers = ({ flights }) => {
   const map = useMap();
 
-  console.log(flights);
-
   useEffect(() => {
     if (!map) return;
     const canvasIconLayer = L.canvasIconLayer({}).addTo(map);

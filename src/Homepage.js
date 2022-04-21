@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import Spinner from './components/Spinner';
-import { Bar } from './components/charts';
 import { PlanesOnGroundCompare } from './components/planes-on-ground-compare';
 import WorldMap from './components/WorldMap/WorldMap';
 import CountPlanesByCountries from './components/count-planes-by-countries';
-import {baroAltitudeCount} from "./utilities/functions";
+import VerticalRateOfPlanes from './components/vertical-rate-of-planes';
+import CheckTrackOfPlanes from './components/CheckTrackOfPlanes';
+import {BarimetricLatitude} from "./components/BarimetricLatitude";
 
 const Homepage = () => {
   const [flights, setFlights] = useState([]);
@@ -14,7 +15,6 @@ const Homepage = () => {
     fetch('https://gothic459.pythonanywhere.com/api/flights')
       .then(response => response.json())
       .then(data => {
-        console.log(data.length)
         setIsLoading(false);
         setFlights(data);
       });
@@ -29,9 +29,14 @@ const Homepage = () => {
       <CountPlanesByCountries flights={flights}/>
       <PlanesOnGroundCompare flights={flights}/>
       <CountPlanesByCountries flights={(flights).filter(({time_position}) => time_position === '')}/>
-      <h1>Barometric height</h1>
-      <Bar props={baroAltitudeCount(flights)}/>
+      <BarimetricLatitude flights={flights}/>
       <WorldMap flights={flights} />
+      <CountPlanesByCountries
+        title={'Kraje pochodzenia samolotów bez podania ostatniej pozycji przez 15 sekund'}
+        flights={(flights).filter(({time_position}) => time_position === '')}
+      />
+      <VerticalRateOfPlanes flights={flights}/>
+      <CheckTrackOfPlanes flights={flights}/>
     </div>
   );
 };

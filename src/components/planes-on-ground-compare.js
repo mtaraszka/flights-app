@@ -1,7 +1,6 @@
 import { isPlaneOnGround } from '../utilities/functions';
 import { Pie } from './charts';
 
-
 export const PlanesOnGroundCompare = ({ flights }) => {
   return (
     <div>
