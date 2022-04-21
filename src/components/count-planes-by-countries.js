@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Pie } from './charts';
 import { getCountOfPlanesByCountries } from '../utilities/functions';
 
-const CountPlanesByCountries = ({ flights }) => {
+const CountPlanesByCountries = ({ flights, title }) => {
   const [countedPlanesByCountries, setCountedPlanesByCountries] = useState(null);
   const [limit, setLimit] = useState(10);
 
@@ -13,6 +13,7 @@ const CountPlanesByCountries = ({ flights }) => {
   return (
     <div>
       <div className={'w-fit mx-auto'}>
+        <h2>{title}</h2>
         <select onChange={e => setLimit(e.target.value)}>
           <option value={'10'}>10</option>
           <option value={'15'}>15</option>
