@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { csv } from "d3-fetch";
-import { scaleLinear } from "d3-scale";
 import WorldMap from "react-svg-worldmap";
 
 const HeatMap = ({flights}) => {
@@ -21,18 +19,16 @@ const HeatMap = ({flights}) => {
                     });
         }, []);
 
-        console.log(data)
-        
    return (
-       <>
+       <div style={{display: 'flex', justifyContent: 'center'}}>
            {isLoaded ? <WorldMap color="green"
-                                  backgroundColor="#555555"
+                                  backgroundColor="#666666"
                                   frame="true"
                                   title="Heat Map"
                                   size="lg"
                                   data={data} /> :
                <div>Loading...</div>}
-       </>
+       </div>
    );
 }
 
