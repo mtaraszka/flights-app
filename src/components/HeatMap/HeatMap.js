@@ -24,7 +24,7 @@ const HeatMap = ({flights}) => {
            {isLoaded ? <WorldMap color="green"
                                   backgroundColor="#666666"
                                   frame="true"
-                                  title="Heat Map"
+                                  title="Busiest Airspaces - Choropleth map"
                                   size="xxl"
                                   data={data} /> :
                <div>Loading...</div>}
