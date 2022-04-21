@@ -1,4 +1,4 @@
-const getCountOfPlanesByCountries = (flights) => {
+export const getCountOfPlanesByCountries = (flights) => {
   let counts = {};
 
   let countries = [];
@@ -10,5 +10,3 @@ const getCountOfPlanesByCountries = (flights) => {
     return { label: key, value: counts[key] };
   }).sort((a,b) => a.value - b.value).reverse();
 };
-
-export default getCountOfPlanesByCountries;

@@ -1,6 +1,6 @@
 const Label = ({ data, colorPalette }) => {
   return (
-    <ul className={'flex w-1/2 flex-col gap-1.5 font-bold uppercase italic tracking-wider text-white text-lg'}>
+    <ul className={'flex self-center w-1/2 flex-col gap-1.5 font-bold uppercase italic tracking-wider text-white text-lg'}>
       {data.map((item, index) => {
         return (
           <li

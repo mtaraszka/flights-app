@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import getCountOfPlanesByCountries from '../utilities/functions/getCountOfPlanesByCountries';
 import { Pie } from './charts';
+import { getCountOfPlanesByCountries } from '../utilities/functions';
 
 const CountPlanesByCountries = ({ flights }) => {
   const [countedPlanesByCountries, setCountedPlanesByCountries] = useState(0);
