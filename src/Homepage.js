@@ -7,6 +7,7 @@ import VerticalRateOfPlanes from './components/vertical-rate-of-planes';
 import CheckTrackOfPlanes from './components/CheckTrackOfPlanes';
 import { BarometricLatitude } from './components/BarometricLatitude';
 import Section from './components/section';
+import HeatMap from './components/HeatMap/HeatMap';
 
 const Homepage = () => {
   const [flights, setFlights] = useState([]);
@@ -39,6 +40,8 @@ const Homepage = () => {
           </h2>
           <WorldMap flights={flights}/>
         </Section>
+
+        <HeatMap flights={flights}/>
 
         <Section>
           <h2>
