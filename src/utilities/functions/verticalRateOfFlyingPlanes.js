@@ -15,8 +15,8 @@ export const verticalRateOfFlyingPlanes = (flights) => {
   })
 
   return [
-    {label: 'Liczba samolotów opadających', value: negativeRate},
-    {label: 'Liczba samolotów na stałej wysokości', value: zeroRate},
-    {label: 'Liczba samolotów wznoszących się', value: positiveRate},
+    {label: 'Amount of descending airplanes', value: negativeRate},
+    {label: 'Amount of regular position airplanes', value: zeroRate},
+    {label: 'Amount of climbing airplanes', value: positiveRate},
   ]
 };

@@ -18,7 +18,7 @@ const Markers = ({ flights }) => {
     });
 
     const markers = [];
-    flights.forEach(flight => {
+    flights.filter(flight => flight.on_ground === 'False').forEach(flight => {
       const marker = L.marker([flight.latitude, flight.longitude], {
         icon: icon
       });

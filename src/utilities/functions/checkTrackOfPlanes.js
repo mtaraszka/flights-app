@@ -32,13 +32,13 @@ export const checkTrackOfPlanes = (flights) => {
   });
 
   return [
-    {category: 'Północ', value: north},
-    {category: 'Północny wschód', value: northEast},
-    {category: 'Wschód', value: east},
-    {category: 'Południowy wschód', value: southEast},
-    {category: 'Południe', value: south},
-    {category: 'Południowy zachód', value: southWest},
-    {category: 'Zachód', value: west},
-    {category: 'Północny zachód', value: northWest},
+    {category: 'North', value: north},
+    {category: 'North-East', value: northEast},
+    {category: 'East', value: east},
+    {category: 'South-East', value: southEast},
+    {category: 'South', value: south},
+    {category: 'South-West', value: southWest},
+    {category: 'West', value: west},
+    {category: 'North-West', value: northWest},
   ];
 };

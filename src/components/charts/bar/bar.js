@@ -1,9 +1,8 @@
 import BarChart from './bar-chart';
 
-export const Bar = ({ data, title, columnsColor }) => {
+export const Bar = ({ data, columnsColor }) => {
   return (
     <div>
-      <h2>{title}</h2>
       <BarChart data={data} columnsColor={columnsColor}/>
     </div>
   );

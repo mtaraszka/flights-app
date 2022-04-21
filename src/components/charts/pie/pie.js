@@ -18,7 +18,7 @@ export const Pie = ({ data }) => {
 
   return (
     <div>
-      <div className={'flex pb-32 pt-20 px-20 flex-row gap-12 justify-around'}>
+      <div className={'flex my-24 px-20 flex-row gap-12 justify-around'}>
         <Chart
           data={pieData}
           width={420}
