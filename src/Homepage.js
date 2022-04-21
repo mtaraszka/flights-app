@@ -5,6 +5,7 @@ import WorldMap from './components/WorldMap/WorldMap';
 import CountPlanesByCountries from './components/count-planes-by-countries';
 import VerticalRateOfPlanes from './components/vertical-rate-of-planes';
 import CheckTrackOfPlanes from './components/CheckTrackOfPlanes';
+import HeatMap from './components/HeatMap/HeatMap';
 
 const Homepage = () => {
   const [flights, setFlights] = useState([]);
@@ -34,6 +35,7 @@ const Homepage = () => {
       />
       <VerticalRateOfPlanes flights={flights}/>
       <CheckTrackOfPlanes flights={flights}/>
+      <HeatMap flights={flights}/>
     </div>
   );
 };
