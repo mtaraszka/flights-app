@@ -25,7 +25,7 @@ const HeatMap = ({flights}) => {
                                   backgroundColor="#666666"
                                   frame="true"
                                   title="Heat Map"
-                                  size="lg"
+                                  size="xxl"
                                   data={data} /> :
                <div>Loading...</div>}
        </div>
