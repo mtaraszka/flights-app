@@ -41,7 +41,9 @@ const Homepage = () => {
           <WorldMap flights={flights}/>
         </Section>
 
-        <HeatMap flights={flights}/>
+        <Section>
+          <HeatMap flights={flights}/>
+        </Section>
 
         <Section>
           <h2>
